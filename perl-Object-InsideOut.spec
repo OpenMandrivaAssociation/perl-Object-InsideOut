@@ -1,11 +1,11 @@
 %define module	Object-InsideOut
 %define name	perl-%{module}
-%define version 3.11
-%define release %mkrel 2
+%define version 3.14
+%define rel     1
 
 Name:		    %{name}
 Version:	    %{version}
-Release:	    %{release}
+Release:	    %mkrel %{rel}
 Summary:	    Comprehensive inside-out object support perl module
 License:	    GPL or Artistic
 Group:		    Development/Perl
