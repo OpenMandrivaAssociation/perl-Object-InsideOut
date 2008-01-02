@@ -17,6 +17,7 @@ BuildRequires:	perl-devel
 BuildRequires:	perl(attributes)
 BuildRequires:	perl(Exception::Class)
 BuildArch:	    noarch
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 # optional, and lead to a requires loop
 %define _requires_exceptions perl\(Math::Random::MT::Auto)\  
 
