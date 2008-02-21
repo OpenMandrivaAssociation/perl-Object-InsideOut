@@ -1,6 +1,6 @@
 %define module	Object-InsideOut
 %define name	perl-%{module}
-%define version 3.36
+%define version 3.37
 %define rel     1
 
 Name:		    %{name}
