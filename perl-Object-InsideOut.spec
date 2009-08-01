@@ -1,25 +1,26 @@
-%define module	Object-InsideOut
-%define name	perl-%{module}
-%define version 3.55
-%define rel     1
+%define upstream_name	 Object-InsideOut
+%define upstream_version 3.55
 
-Name:		    %{name}
-Version:	    %{version}
-Release:	    %mkrel 1
-Summary:	    Comprehensive inside-out object support perl module
-License:	    GPL or Artistic
-Group:		    Development/Perl
-Url:		    http://search.cpan.org/dist/%{module}/
-Source:		    http://www.cpan.org/modules/by-module/Object/%{module}-%{version}.tar.bz2
+# optional, and lead to a requires loop
+%define _requires_exceptions perl\(Math::Random::MT::Auto)\  
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:	Comprehensive inside-out object support perl module
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:	http://www.cpan.org/modules/by-module/Object/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 BuildRequires:	perl(attributes)
 BuildRequires:	perl(Exception::Class)
 BuildArch:	    noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
-# optional, and lead to a requires loop
-%define _requires_exceptions perl\(Math::Random::MT::Auto)\  
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This module provides comprehensive support for implementing classes using the
@@ -36,7 +37,7 @@ Advantages of this OO scheme are:
 3 - compilation-time checks
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -58,5 +59,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Object
 %{_mandir}/man3/*
-
-
