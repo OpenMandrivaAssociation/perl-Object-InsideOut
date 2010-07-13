@@ -1,5 +1,5 @@
 %define upstream_name	 Object-InsideOut
-%define upstream_version 3.64
+%define upstream_version 3.67
 
 # optional, and lead to a requires loop
 %define _requires_exceptions perl\(Math::Random::MT::Auto)\  
