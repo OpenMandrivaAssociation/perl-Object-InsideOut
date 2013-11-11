@@ -1,5 +1,5 @@
 %define upstream_name	 Object-InsideOut
-%define upstream_version 3.97
+%define upstream_version 3.98
 
 # optional, and lead to a requires loop
 %if %{_use_internal_dependency_generator}
@@ -9,14 +9,14 @@
 %endif
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version 3.97
+Version:	%perl_convert_version %{upstream_version}
 Release:	1
 
 Summary:	Comprehensive inside-out object support perl module
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}/
-Source0:	http://www.cpan.org/modules/by-module/Object/Object-InsideOut-3.97.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Object/Object-InsideOut-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Exception::Class)
@@ -241,5 +241,6 @@ rm -f %{buildroot}%{perl_vendorlib}/Bundle/Object/InsideOut.pm
 
 * Tue May 02 2006 Michael Scherer <misc@mandriva.org> 1.41-1mdk
 - First Mandriva package, fix #22223
+
 
 
