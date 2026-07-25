@@ -1,5 +1,5 @@
 %define upstream_name	 Object-InsideOut
-%define upstream_version 3.98
+%define upstream_version 4.05
 
 # optional, and lead to a requires loop
 %if %{_use_internal_dependency_generator}
@@ -9,14 +9,14 @@
 %endif
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%{upstream_version}
+Release:	1
 
 Summary:	Comprehensive inside-out object support perl module
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}/
-Source0:	http://www.cpan.org/modules/by-module/Object/Object-InsideOut-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/Object-InsideOut
+Source0:	https://cpan.metacpan.org/authors/id/J/JD/JDHEDDEN/Object-InsideOut-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
