@@ -1,6 +1,4 @@
 %define upstream_name	 Object-InsideOut
-%define upstream_version 4.05
-
 # optional, and lead to a requires loop
 %if %{_use_internal_dependency_generator}
 %define __noautoreq 'perl\\(Math::Random::MT::Auto\\)'
@@ -9,14 +7,14 @@
 %endif
 
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	1
+Version:	4.05
+Release:	2
 
 Summary:	Comprehensive inside-out object support perl module
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Object-InsideOut
-Source0:	https://cpan.metacpan.org/authors/id/J/JD/JDHEDDEN/Object-InsideOut-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/J/JD/JDHEDDEN/Object-InsideOut-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -38,7 +36,7 @@ Advantages of this OO scheme are:
 3 - compilation-time checks
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -104,9 +102,7 @@ rm -f %{buildroot}%{perl_vendorlib}/Bundle/Object/InsideOut.pm
 
 * Sat Aug 01 2009 Jérôme Quelin <jquelin@mandriva.org> 3.550.0-1mdv2010.0
 + Revision: 406177
-- rebuild using %%perl_convert_version
-
-* Sat May 09 2009 Guillaume Rousse <guillomovitch@mandriva.org> 3.55-1mdv2010.0
+- rebuild using %4.05 Sat May 09 2009 Guillaume Rousse <guillomovitch@mandriva.org> 3.55-1mdv2010.0
 + Revision: 373773
 - update to new version 3.55
 
